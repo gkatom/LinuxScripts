@@ -1,0 +1,13 @@
+#!/bin/bash
+fo="${PWD}"
+dest="/home/gkbot/.gazebo/models/"
+read -p "Link all folders from $fo into $dest. Are you sure? [N/y]" -n 1 -r
+echo 
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	for d in */ ; do 
+		foo="$fo/$d" 
+		echo $d
+		ln -s $foo $dest
+	done
+fi
